@@ -1,6 +1,8 @@
 # Storytailor
 
-User stories describe ideal system behavior. They have different formats: some are easier to read, some are easier to write. **Storytailor** solves the dilemma by compiling easy-to-read stories from easy-to-write code.
+User stories describe ideal system behavior. They have different formats: some are easier to read, some are easier to write.
+
+**Storytailor** solves the dilemma by compiling easy-to-read stories from easy-to-write code.
 
 ## Stories
 
@@ -20,6 +22,21 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
   * Designer requests user feedback ([loop](#designer-requests-feedback-from-user)).
 * If feedback doesn't imply changes:
   * Designer sends the story to Programmer.
+
+### Designer requests feedback on changes via GitHub pull request
+
+* [Designer writes a story](#designer-writes-a-story).
+* Designer switches to a separate branch.
+* Designer makes changes to the story.
+* Designer pushes the changes to repository.
+* Designer creates a pull request that includes the changes.
+* GitHub sends notifications to repository maintainers.
+
+### Designer requests feedback from client via GitHub
+
+* Designer creates a GitHub repository for stories.
+* Designer adds client as repository maintainer. 
+* [Designer requests feedback on changes via GitHub pull request](#designer-requests-feedback-on-changes-via-github-pull-request)
 
 ### Designer marks the story as draft
 
@@ -45,6 +62,7 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
 ## Notes
 
 * Stories are just named event sequences.
+* Stories should become tests.
 * Events have different forms:
   * Long form: all properties specified via nested list.
     * User signs up
