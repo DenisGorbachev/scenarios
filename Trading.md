@@ -1,6 +1,8 @@
-# Stories
+# Trading
 
-## Exchange updates latest price
+## Stories
+
+### Exchange updates latest price
 
 * Alice places an [order](#order) to buy 1 BTC for 10000 USD.
 * Bob places an [order](#order) to sell 1 BTC for 10000 USD.
@@ -14,9 +16,9 @@
     * Symbol: BTCUSD
     * Latest trade price: 10000 USD
 
-# Definitions
+## Definitions
 
-## Order
+### Order
 
 Order is an instruction to buy or sell a specified amount of asset at specified price.
 
