@@ -4,7 +4,7 @@ User stories describe ideal system behavior. They have different formats: some a
 
 ## Stories
 
-Storytailor is developed using Storytailor itself ("bootstrapped", just like programming language compilers). Below are the stories that describe ideal Storytailor behavior.
+Storytailor is developed using Storytailor itself (just like compilers of certain programming languages). Below are the stories that describe ideal Storytailor behavior.
 
 ### Designer writes a story
 
@@ -34,3 +34,21 @@ Storytailor is developed using Storytailor itself ("bootstrapped", just like pro
   * Update is a database update (insertion, removal, modification)
   
 Essentially, Programmer asserts that two states are equal: test state (local flat arrays) and system state (database).
+
+## Notes
+
+* Events have different forms:
+  * Long form: all properties specified via nested list.
+    * User signs up
+      * Email: alice@example.com
+      * Username: alice
+      * Password: k34ekst93en
+      * Subscribe to newsletter: yes
+  * Short form: only story-relevant properties specified via nested list.
+    * User signs up
+      * Email: alice@example.com
+      * Username: alice
+  * Inline form: only story-relevant properties specified inline.
+    * User signs up (username: alice)
+* Events can be aliases for other events:
+  * "Alice signs up" is an alias for "User signs up (username: alice)"
