@@ -38,6 +38,42 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
 * Designer adds client as repository maintainer. 
 * [Designer requests feedback on changes via GitHub pull request](#designer-requests-feedback-on-changes-via-github-pull-request)
 
+### Designer adds a link to definition
+
+* Designer starts writing a story
+  * Title: "Exchange updates latest price"
+* Designer adds event: `Alice places an order`
+* Designer adds a link to `Order` definition.
+
+### Designer defines a model for definition
+
+* Designer writes a definition for `Order`.
+* Designer defines a model:
+  ```
+    * Fields:
+      * Symbol
+        * Example: "BTCUSD"
+        * Type: String
+      * Price
+        * Example: 7500.0
+        * Type: Float
+      * Amount
+        * Example: 10.0
+        * Type: Float
+    * Validations:
+      * On insert:
+        * Validate that available balance of current user is higher than sum of already placed order amounts + new order amount
+  ```
+
+### Programmer reuses designer model definition
+
+* [Designer defines a model for definition](#designer-defines-a-model-for-definition).
+* [Designer writes a story](#designer-writes-a-story) that uses prior model definition.
+* Programmer implements a story.
+  * Programmer reuses model definition in the code.
+  
+Note: code reuse is only possible if stories & their implementations are written in the same language.
+
 ### Designer adds comment to object property
 
 * Designer starts writing a story
