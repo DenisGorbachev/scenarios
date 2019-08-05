@@ -10,14 +10,14 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
 
 * Designer interviews User to figure out desirable system behavior.
 * Designer writes a story as a sequence of events.
-* Designer requests feedback from User:
+* <span id="test">Designer requests feedback from User</span>:
   * Questions:
     * Is the story real?
     * Does the story miss any important events?
     * Does the story outcome match your expectations?
 * If feedback implies changes:
   * Designer modifies the story according to user feedback.
-  * Designer requests user feedback again.
+  * Designer requests user feedback ([loop](#test)).
 * If feedback doesn't imply changes:
   * Designer sends the story to Programmer.
 
