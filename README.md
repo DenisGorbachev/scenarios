@@ -129,3 +129,18 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
     * User signs up (username: alice)
 * Events can be aliases for other events:
   * "Alice signs up" is an alias for "User signs up (username: alice)"
+* Shortcuts are story-specific:
+  * With shortcut:
+    ```
+      * Investor buys Spacemine Energy Token (SET).
+      * Investor waits until Spacemine becomes popular.
+      * Investor sells Spacemine Energy Token (SET) for higher price.
+    ```
+  * Without shortcut:
+    ```
+      * Investor buys Spacemine Energy Token (SET):
+        * Price: X
+      * Investor waits until Spacemine becomes popular.
+      * Investor sells Spacemine Energy Token (SET):
+        * Price: Y (Y > X).
+    ```
