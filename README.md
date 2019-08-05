@@ -38,6 +38,21 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
 * Designer adds client as repository maintainer. 
 * [Designer requests feedback on changes via GitHub pull request](#designer-requests-feedback-on-changes-via-github-pull-request)
 
+### Designer adds comment to object property
+
+* Designer starts writing a story
+  * Title: "Exchange updates latest price"
+* Designer adds event:
+  ```
+  * Exchange adds a trade to latest trade list:
+    * Price: 10000 USD.
+    * Amount: 1 BTC.
+    * Type: sell.
+  ```
+* Designer decides to explain `Type: sell` point.
+* Designer modifies the point to `Type: sell (because Bob placed a sell order after Alice)`.
+
+
 ### Designer marks the story as draft
 
 * [Designer writes a story](#designer-writes-a-story).
