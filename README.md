@@ -112,6 +112,18 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
 
 ## Notes
 
+* Stories can be used as:
+  * Marketing collateral:
+    * Teach people about how things work.
+    * Motivate prospects to take action.
+  * Task specifications:
+    * Describe work to potential hires.
+    * Write tests for programmers.
+    * Reach agreement with a client.
+  * Unit of knowledge:
+    * Approve the result of customer discovery.
+    * Share company plans with teams.
+    * Motivate yourself.
 * Stories are just named event sequences.
 * Stories should become tests.
 * Events have different forms:
