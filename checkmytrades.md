@@ -116,6 +116,9 @@ CheckMyTrades allows investors to pick profitable traders for managing their ass
 ## Definitions 
 
 ### Trader
+
+Trader is a user who has developed his own trading strategy & wants to scale by raising investor capital.
+
 * Fears losing status
   * Fears being perceived as unprofitable trader
 * Fears losing wealth
@@ -125,6 +128,9 @@ CheckMyTrades allows investors to pick profitable traders for managing their ass
   * Fears that his API key will be used to place orders / initiate withdrawals
 
 ### Investor
+
+Investor is a user who want to put his capital under management of profitable trader.
+
 * Fears losing wealth
 * Fears investing in unprofitable traders / bots
 * Fears missing out on investing in profitable traders / bots
