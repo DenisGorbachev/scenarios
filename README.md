@@ -96,6 +96,20 @@ Note: code reuse is only possible if stories & their implementations are written
 
 ### Designer defines a loop within the story _(draft)_
 
+### Designer receives feedback in the form of counter-story
+
+* [Designer writes a story](#designer-writes-a-story).
+* Expert reads the story.
+* Expert adds a comment that is also formatted as a story.
+
+### Designer receives feedback in the form of diff to current story
+
+* [Designer writes a story](#designer-writes-a-story).
+* Expert reads the story.
+* Expert adds a comment that represents the same story but with changed steps.
+
+Note: add "Copy parent story".
+
 ### Storytailor generates stories from events
 
 * Programmer defines events
@@ -109,6 +123,15 @@ Note: code reuse is only possible if stories & their implementations are written
   * Update is a database update (insertion, removal, modification)
   
 Essentially, Programmer asserts that two states are equal: test state (local flat arrays) and system state (database).
+
+### Storytailor autolinks stories
+
+* Storytailor generates stories.
+* Storytailor autolinks every step that is equal to existing story.s 
+* Storytailor autolinks the first mention of every definition:
+  * Storytailor doesn't autolink mentions surrounded by "][" (example: `]trader[`)
+  * Storytailor doesn't autolink mentions within linked steps.
+
 
 ## Notes
 
