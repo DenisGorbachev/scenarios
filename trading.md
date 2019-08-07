@@ -16,6 +16,12 @@
     * Symbol: BTCUSD
     * Latest trade price: 10000 USD
 
+### Investor makes money through hedge fund
+
+* Investor provides capital to hedge fund manager
+* Manager increases capital by making trades on exchanges
+* Investor receives returns
+
 ## Definitions
 
 ### Order
