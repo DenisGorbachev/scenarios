@@ -1,0 +1,14 @@
+{
+  "name": "storytailor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DenisGorbachev/storytailor",
+  "author": "Denis Gorbachev <denis.d.gorbachev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^9.0.3"
+  }
+}
