@@ -1,6 +1,6 @@
 # CheckMyTrades
 
-CheckMyTrades allows investors to pick profitable traders for managing their assets.
+CheckMyTrades is an app where smart investors meet profitable traders.
 
 ## Stories
 
@@ -80,7 +80,9 @@ CheckMyTrades allows investors to pick profitable traders for managing their ass
 * ~ System displays errors if form is invalid
 
 ### _(draft)_ System calculates "Profit" metric
-* Decisions 
+* Ideas:
+  * Show assets for period + cost + unrealized profit (accounting for slippage, which should be determined by orderbook depth ~ can use CoinMarketBook)
+* Decisions: 
   * How to calculate metric if position has been taken before selected period?
     * Ideally: get full trade history, calculate position open and close timestamps, exclude open positions from selected period
   * How to calculate metric if position has been taken on one exchange and closed on another?
