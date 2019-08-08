@@ -3,7 +3,7 @@
 CheckMyTrades is an app where smart investors choose profitable traders to manage their capital.
 
 * When investor visits the main page, he sees a list of traders.
-* When investor clicks on a trader, he sees his trading history & performance metrics (profit, drawdown, Sharpe ratio, etc).
+* When investor clicks on a trader, he sees his trading history & performance metrics (profit, drawdown, etc...).
 * When investor clicks "Invest", he sees an instruction for providing capital to this trader.
 
 ## Stories
