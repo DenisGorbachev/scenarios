@@ -109,7 +109,7 @@ CheckMyTrades is an app where smart investors choose profitable traders to manag
 * [x] CEO publishes service description
 * [ ] CEO designs a trader acquisition method
   * Notes 
-    * Traders provide content
+    * Traders provide content that can be utilized for generating initial messages
   * CEO validates the method by receiving 10 subscriptions with min 5% conversion rate
 * [ ] CEO designs an investor acquisition method
   * CEO tests "[Investor learns about CheckMyTrades via trader profile]"
@@ -121,7 +121,30 @@ CheckMyTrades is an app where smart investors choose profitable traders to manag
     * CEO describes the task
     * CEO sends initial messages to employee acquisition channels
     * CEO chooses the employee
+  * [Salesperson tests a direct trader acquisition method](#salesperson-tests-a-direct-trader-acquisition-method)
 * CEO designs another trader acquisition method until he finds one that works
+
+### Salesperson tests a direct trader acquisition method
+
+* Salesperson starts extracting trader contacts:
+  * Salesperson gets a list of trading groups:
+    * Discord servers.
+    * Telegram groups.
+  * Salesperson gets a list of prominent traders:
+    * Crypto Twitter.
+    * TradingView.
+* For each trader contact:
+  * [Salesperson persuades the trader to provide a read-only API key](#salesperson-persuades-the-trader-to-provide-a-read-only-api-key) that gives access to his trading history.
+    * Salesperson
+
+### Salesperson persuades the trader to provide a read-only API key
+
+_Draft:_
+* Salesperson sends an initial message.
+* 
+
+Notes:
+* CTA: Get featured on CheckMyTrades - get more investor capital for management
 
 ## Definitions 
 

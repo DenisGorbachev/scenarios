@@ -104,13 +104,20 @@ Note: code reuse is only possible if stories & their implementations are written
 * Designer decides to explain `Type: sell` point.
 * Designer modifies the point to `Type: sell (because Bob placed a sell order after Alice)`.
 
-
 ### Designer marks the story as draft
 
 * [Designer writes a story](#designer-writes-a-story).
-* Designer adds `_(draft)_` marker to the story title. 
+* Designer adds `_Draft:_` marker before event list.
+  * Rationale:
+    * Designer writes a draft of story X.
+    * Designer links to story X from story Y.
+    * Designer unmarks story X as draft.
+    * ++ Designer doesn't need to fix the link in story Y.
+    * -- Designer has to fix the link in story Y.  
 
-### Designer defines a loop within the story _(draft)_
+### Designer defines a loop within the story
+
+_Draft:_
 
 ### Designer receives feedback in the form of counter-story
 
