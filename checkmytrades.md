@@ -142,6 +142,7 @@ CheckMyTrades is an app where smart investors choose profitable traders to manag
 Notes:
 * CTA: Get featured on CheckMyTrades - get more investor capital for management.
 
+Story:
 * Salesperson reads project description (this document). 
 * Salesperson requests initial messages from CEO.
 * Salesperson sends one of initial messages to trader.
