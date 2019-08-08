@@ -107,44 +107,44 @@ CheckMyTrades is an app where smart investors choose profitable traders to manag
 
 ### CEO develops CheckMyTrades
 * [x] CEO publishes service description
-* [ ] CEO designs a trader acquisition method
+* [ ] [CEO develops a trader acquisition method](#ceo-develops-a-trader-acquisition-method)
   * Notes 
     * Traders provide content that can be utilized for generating initial messages
   * CEO validates the method by receiving 10 subscriptions with min 5% conversion rate
-* [ ] CEO designs an investor acquisition method
+* [ ] CEO develops an investor acquisition method
   * CEO tests "[Investor learns about CheckMyTrades via trader profile]"
     * CEO validates method by reaching 10 links total & 50 unique visitors per day
 
-### CEO designs a trader acquisition method
-* CEO tests direct trader acquisition method
-  * CEO hires a salesperson
-    * CEO describes the task
-    * CEO sends initial messages to employee acquisition channels
-    * CEO chooses the employee
-  * [Salesperson tests a direct trader acquisition method](#salesperson-tests-a-direct-trader-acquisition-method)
-* CEO designs another trader acquisition method until he finds one that works
+### CEO develops a trader acquisition method
+* CEO designs a trader acquisition method
+* CEO tests a trader acquisition method
+* CEO repeats the story if method doesn't pass the test 
 
 ### Salesperson tests a direct trader acquisition method
 
-* Salesperson starts extracting trader contacts:
-  * Salesperson gets a list of trading groups:
+* Salesperson gets a source of trader contacts:
+  * Salesperson gets a list of trading group members:
     * Discord servers.
     * Telegram groups.
   * Salesperson gets a list of prominent traders:
     * Crypto Twitter.
     * TradingView.
 * For each trader contact:
+  * Salesperson adds the contact to CRM.
   * [Salesperson persuades the trader to provide a read-only API key](#salesperson-persuades-the-trader-to-provide-a-read-only-api-key) that gives access to his trading history.
-    * Salesperson
 
 ### Salesperson persuades the trader to provide a read-only API key
 
-_Draft:_
-* Salesperson sends an initial message.
-* 
-
 Notes:
-* CTA: Get featured on CheckMyTrades - get more investor capital for management
+* CTA: Get featured on CheckMyTrades - get more investor capital for management.
+
+* Salesperson reads project description (this document). 
+* Salesperson requests initial messages from CEO.
+* Salesperson sends one of initial messages to trader.
+* Salesperson answers trader questions.
+* Salesperson resolves [trader fears](#trader).
+* Salesperson receives API key & secret.
+* Salesperson adds API key & secret to CRM.
 
 ## Definitions 
 
@@ -190,3 +190,7 @@ Model:
 Acquisition method is a way of attracting users of specific type, expressed as a story and verified through multiple executions.
 
 Acquisition method is similar to "acquisition channel" in marketing, but a single acquistion method may use multiple channels.
+
+### Direct acquisition method
+
+Direct acquisition method is a way of attracting users through direct messages.
