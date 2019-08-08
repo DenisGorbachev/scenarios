@@ -1,6 +1,6 @@
 # CheckMyTrades
 
-CheckMyTrades is an app where smart investors meet profitable traders.
+CheckMyTrades is an app where smart investors choose profitable traders to manage their capital.
 
 ## Stories
 
@@ -127,7 +127,7 @@ CheckMyTrades is an app where smart investors meet profitable traders.
 
 ### Trader
 
-Trader is a user who has developed his own trading strategy & wants to scale by raising investor capital.
+Trader is a [user](#user) who has developed his own trading strategy & wants to scale by raising investor capital.
 
 * Fears losing status
   * Fears being perceived as unprofitable trader
@@ -139,12 +139,28 @@ Trader is a user who has developed his own trading strategy & wants to scale by 
 
 ### Investor
 
-Investor is a user who want to put his capital under management of profitable trader.
+Investor is a [user](#user) who want to put his capital under management of profitable trader.
 
 * Fears losing wealth
 * Fears investing in unprofitable traders / bots
 * Fears missing out on investing in profitable traders / bots
   * Profitable traders / bots limit their investment capital, because their strategies become less profitable with higher capital amounts
+
+### User
+
+User is a person who signed up for CheckMyTrades.
+
+Model:
+* Email
+  * Type: String
+  * Index: Unique
+* Password
+  * Type: String
+  * Note: Hashed
+* Reset password token
+  * Type: String
+* Show absolute amounts in trade history
+  * Type: Boolean
 
 ### Acquisition method
 

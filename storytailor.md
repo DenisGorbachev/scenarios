@@ -71,6 +71,16 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
 * Designer decides to add a definition for "Acquisition channel"
 * Designer includes "Acquisition channel" definition from sales book.
 
+### Designer reuses stories from another project
+
+* Designer creates a new project.
+* Designer realizes it needs the same user management stories:
+  * Sign up.
+  * Reset password.
+  * Change email.
+  * Change password.
+* Designer includes "User management" book in the new project.
+
 ### Programmer reuses designer model definition
 
 * [Designer defines a model for definition](#designer-defines-a-model-for-definition).
