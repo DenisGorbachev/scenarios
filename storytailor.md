@@ -160,6 +160,11 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
   * Storytailor doesn't autolink mentions surrounded by "][" (example: `]trader[`)
   * Storytailor doesn't autolink mentions within linked steps.
 
+### Storytailor displays a table of contents
+
+* Storytailor generates stories.
+* Storytailor displays a table of contents on project page.
+
 ### Storytailor places full stops at the end of the points
 
 * Storytailor generates stories.
