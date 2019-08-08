@@ -2,27 +2,31 @@
 
 CheckMyTrades is an app where smart investors choose profitable traders to manage their capital.
 
+* When investor visits the main page, he sees a list of traders.
+* When investor clicks on a trader, he sees his trading history & performance metrics (profit, drawdown, Sharpe ratio, etc).
+* When investor clicks "Invest", he sees an instruction for providing capital to this trader.
+
 ## Stories
 
 ### [Trader](#trader) learns about CheckMyTrades
-* Trader creates a public post with trade idea
-* Employee adds a comment
+* [Trader](#trader) creates a public post with trade idea.
+* [Employee](#employee) adds a comment.
   * Text: "Are you a profitable trader? If yes - why not publish your trade history here: https://checkmytrades.tech/"
-* Trader clicks on CheckMyTrades link in comment
+* Trader clicks on CheckMyTrades link in comment.
 
 ### [Investor](#investor) learns about CheckMyTrades via trader profile
-* [Trader learns about CheckMyTrades](#trader-learns-about-checkmytrades)
-* [Trader signs up](#trader-signs-up)
-* Trader adds a link to CheckMyTrades to his profile
-  * URL: https://checkmytrades.tech/CryptoCred 
-* Trader creates a public post with trade idea
-* Investor opens Trader profile
-* Investor clicks on CheckMyTrades link in Trader profile
+* [Trader learns about CheckMyTrades](#trader-learns-about-checkmytrades).
+* [Trader signs up](#trader-signs-up).
+* Trader adds a link to CheckMyTrades to his profile.
+  * URL: https://checkmytrades.tech/CryptoCred.
+* Trader creates a public post with trade idea.
+* Investor opens Trader profile.
+* Investor clicks on CheckMyTrades link in Trader profile.
 
 ### [Investor](#investor) checks trade history
-* Investor decides to check whether CryptoCred the Trader is profitable
-* Investor opens https://checkmytrades.tech/CryptoCred
-* Investor selects metric calculation parameters
+* Investor decides to check whether CryptoCred the Trader is profitable.
+* Investor opens https://checkmytrades.tech/CryptoCred.
+* Investor selects metric calculation parameters:
   * Period
     * Widget: Select with options
       * Last 3 months
@@ -33,14 +37,14 @@ CheckMyTrades is an app where smart investors choose profitable traders to manag
     * Note: Set `from` and `to` fields when select changes
       * Rationale 
         * We'll add "Custom" option to select, allowing investor to choose custom date interval
-* Investor reads metrics calculated from CryptoCred trades
+* Investor reads metrics calculated from CryptoCred trades:
   * Notes 
     * Absolute values are displayed if Trader enables "Show trade amounts"
   * Metrics:
     * Profit: 23% (589 USD)
     * Drawdown: -40% (-2058 USD)
     * Final capital: 8150 USD
-* Investor clicks on "Next page"
+* Investor clicks on "Next page".
 
 ### Investor subscribes to "new trade" notifications
 * Investor opens https://checkmytrades.tech/CryptoCred
@@ -184,6 +188,8 @@ Model:
   * Type: String
 * Show absolute amounts in trade history
   * Type: Boolean
+
+### Employee
 
 ### Acquisition method
 
