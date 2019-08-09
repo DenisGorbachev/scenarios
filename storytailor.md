@@ -19,7 +19,7 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
     * Does the story outcome match your expectations?
 * If feedback implies changes:
   * Designer modifies the story according to user feedback.
-  * Designer requests user feedback ([loop](#designer-requests-feedback-from-user)).
+  * Designer requests feedback from User ([loop](#designer-requests-feedback-from-user)).
 * If feedback doesn't imply changes:
   * Designer sends the story to Programmer.
 
