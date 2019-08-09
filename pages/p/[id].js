@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Layout from '../../components/MyLayout.js';
+import Layout from '../../components/Layout.js';
 
 export default function Post() {
   const router = useRouter();

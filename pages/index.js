@@ -1,10 +1,11 @@
-import Layout from '../components/MyLayout.js'
+import Layout from '../components/Layout.js'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
+import {Header} from "semantic-ui-react"
 
 const Index = props => (
   <Layout>
-    <h1>Batman TV Shows</h1>
+    <Header as='h1'>Projects</Header>
     <ul>
       {props.shows.map(show => (
         <li key={show.id}>
@@ -17,7 +18,7 @@ const Index = props => (
   </Layout>
 )
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
   const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
   const data = await res.json()
 
