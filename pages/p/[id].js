@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout.js';
 
-export default function Post() {
+const Post = ({id}) => {
   const router = useRouter();
+  console.log('router', router);
+  console.log('router.query', router.query);
 
   return (
     <Layout>
@@ -11,3 +13,9 @@ export default function Post() {
     </Layout>
   );
 }
+
+Post.getInitialProps = async ({ query }) => {
+  return { name: query.name }
+}
+
+export default Post

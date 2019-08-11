@@ -133,6 +133,33 @@ _Draft:_
 
 Note: add "Copy parent story".
 
+### User personalizes story via account creation form
+
+* [Designer writes a story](#designer-writes-a-story) using Alice as hypothetical user. 
+* Bob opens story.
+* Bob clicks "Personalize story"
+* Bob creates an account with Storytailor.
+  * Email: bob@example.com
+  * Name: Bob
+* Bob reads a personalized story where "Alice" is replaced with "Bob". 
+
+### User personalizes story via inline context form
+
+* [Designer writes a story](#designer-writes-a-story):
+  * Alice trades on Coinbase if she is a US resident.
+  * Alice trades on BitMEX if she is not a US resident.
+* Storytailor generates an inline form:
+  * Fields:
+    * Are you a US resident?
+      * Widget: Checkbox.
+  * Buttons:
+    * Apply:
+      * On click: gray out story events that aren't applicable in speficied context.
+    * Save as defaults:
+      * On click:
+        * Same as apply + save form values to account.
+          * Note: allow to specify account property namespace via field name.
+
 ### Storytailor generates stories from events
 
 * Programmer defines events
@@ -155,7 +182,13 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
 ### Storytailor autolinks stories
 
 * Storytailor generates stories.
-* Storytailor autolinks every step that is equal to existing story.s 
+* Storytailor sorts stories by title length.
+  * Rationale: Storytailor wants to autolink more specific stories / definitions first
+  * Example:
+    * Designer writes a story with two steps:
+      * Use exchange
+      * Use peer-to-peer exchange
+* Storytailor autolinks every step that is equal to existing story. 
 * Storytailor autolinks the first mention of every definition:
   * Storytailor doesn't autolink mentions surrounded by "][" (example: `]trader[`)
   * Storytailor doesn't autolink mentions within linked steps.
