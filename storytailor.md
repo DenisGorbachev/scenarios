@@ -154,6 +154,7 @@ Note: add "Copy parent story".
   * Examples:
     * Salary.
     * Password.
+    * API key.
 * Designer specifies users that should have access to the story by adding their emails to `permissions` key.
 * Storytailor checks story permissions before displaying it.
 
