@@ -11,7 +11,7 @@ export default function Index() {
         {projects.map(project => (
           <li key={project.uid}>
             <Link href="/[project]" as={`/${project.uid}`}>
-              <a>{project.name}</a>
+              <a>{project.title}</a>
             </Link>
           </li>
         ))}

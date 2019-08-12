@@ -11,7 +11,7 @@ const Project = ({uid}) => {
 
   return (
     <Layout>
-      <h1>{project.name}</h1>
+      <h1>{project.title}</h1>
       <ul>
         {project.stories.map(story => (
           <li key={story.uid}>
