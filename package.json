@@ -34,6 +34,9 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.8.0",
-    "jest": "^24.8.0"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "react-test-renderer": "Pinned version 16.8.0 since Next.js uses React 16.8.*",
+    "react-test-renderer": "~16.8.0"
   }
 }

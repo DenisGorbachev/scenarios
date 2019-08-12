@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index renders correctly 1`] = `
+<div>
+  <div
+    className="ui borderless inverted top attached menu"
+    style={
+      Object {
+        "marginBottom": "10px",
+      }
+    }
+  >
+    <a
+      className="item"
+      onClick={[Function]}
+    >
+      <div
+        className="ui inverted header"
+      >
+        <i
+          aria-hidden="true"
+          className="list alternate outline icon"
+          onClick={[Function]}
+        />
+        <div
+          className="content"
+        >
+          Storytailor
+        </div>
+      </div>
+    </a>
+    <div
+      className="right menu"
+    >
+      <a
+        className="right item"
+        href="https://github.com/DenisGorbachev/storytailor/issues/new"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          aria-hidden="true"
+          className="help icon"
+          onClick={[Function]}
+        />
+        <span>
+          Help
+        </span>
+      </a>
+    </div>
+  </div>
+  <div
+    className="ui text container main"
+  >
+    <h1
+      className="ui header"
+    >
+      Projects
+    </h1>
+    <ul>
+      <li>
+        <a
+          href="/storytailor"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        />
+      </li>
+      <li>
+        <a
+          href="/checkmytrades"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        />
+      </li>
+      <li>
+        <a
+          href="/trading"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
