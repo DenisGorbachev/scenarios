@@ -65,6 +65,15 @@ Storytailor is developed using Storytailor itself (just like compilers of certai
         * Validate that available balance of current user is higher than sum of already placed order amounts + new order amount
   ```
 
+### Designer adds validator to a story / Designer writes a story according to high-level spec
+
+_Draft:_
+* Designer realizes that story has to correspond to high-level format in order to be correct:
+  * Example:
+    * Sales pitch must be written according to AIDA formula.
+    * Startup development should be structured as series of experiments (Build-Measure-Learn loop).
+    * Product development should include a feedback loop.
+
 ### Designer reuses definition from another project
 
 * [Designer writes a story](#designer-writes-a-story).
@@ -118,6 +127,12 @@ Note: code reuse is only possible if stories & their implementations are written
 ### Designer defines a loop within the story
 
 _Draft:_
+
+### Designer requests feedback
+
+* [Designer writes a story](#designer-writes-a-story).
+* Designer deploys the app.
+* App sends a notification to each subscribed user.
 
 ### Designer receives feedback in the form of counter-story
 
@@ -177,7 +192,7 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
 ### Storytailor parses stories from template
 
 * Storytailor starts
-* Storytailor parses stories from *.md files in current directory
+* Storytailor parses stories from `*.md` files in current directory
 
 ### Storytailor autolinks stories
 
