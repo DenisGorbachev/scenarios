@@ -1,5 +1,5 @@
+import cheerio from 'cheerio'
 import MarkdownIt from'markdown-it'
-import {JSDOM} from "jsdom"
 import Story from "../lib/Story"
 
 export const markdown = new MarkdownIt({
@@ -7,8 +7,10 @@ export const markdown = new MarkdownIt({
 })
 
 export function storyFromMarkdown(text) {
-  const document = new JSDOM(markdown.render(text.trim()))
-  console.log('result', document.children);
+  const $document = cheerio.load(markdown.render(text.trim()))
+  return new Story(
+
+  )
 }
 
 export function story(title, events) {

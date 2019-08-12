@@ -7,16 +7,19 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
+    "test": "jest",
+    "watch": "jest --watch",
     "build": "next build",
     "start": "next start",
     "deploy": "now"
   },
   "dependencies": {
+    "@hapi/joi": "^15.1.0",
     "@zeit/next-css": "^1.0.1",
+    "cheerio": "^1.0.0-rc.3",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
     "isomorphic-unfetch": "^3.0.0",
-    "jest": "^24.8.0",
     "lodash": "^4.17.15",
     "markdown-it": "^9.1.0",
     "next": "^9.0.3",
@@ -25,5 +28,11 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.3",
     "url-loader": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
   }
 }
