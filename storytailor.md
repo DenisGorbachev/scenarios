@@ -148,6 +148,24 @@ _Draft:_
 
 Note: add "Copy parent story".
 
+### Designer shares a private story
+
+* [Designer writes a story](#designer-writes-a-story) that contains sensitive details:
+  * Examples:
+    * Salary.
+    * Password.
+* Designer specifies users that should have access to the story by adding their emails to `permissions` key.
+* Storytailor checks story permissions before displaying it.
+
+### Designer encrypts a private story within public repository
+
+* [Designer writes a story](#designer-writes-a-story).
+* Designer uses git encryption to create an unreadable public file with the story.
+* Designer adds decryption password to deployment environment variables
+* Designer deploys app.
+* App decrypts the story.
+* App displays the story to specific users (defined by story `permissions` key). 
+
 ### User personalizes story via account creation form
 
 * [Designer writes a story](#designer-writes-a-story) using Alice as hypothetical user. 
