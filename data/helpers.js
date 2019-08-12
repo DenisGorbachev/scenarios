@@ -1,7 +1,9 @@
 import _ from 'lodash'
+import fs from 'fs'
 import cheerio from 'cheerio'
 import MarkdownIt from 'markdown-it'
 import Story from '../lib/Story'
+import Project from '../lib/Project'
 
 export const markdown = new MarkdownIt({
   typographer: false,
@@ -14,7 +16,7 @@ const cheerioOptions = {
   decodeEntities: true,
 }
 
-export function storyFromMarkdown (text, opts) {
+export function storyFromMarkdown (text, opts = {}) {
   const options = Object.assign({
     uid: '',
     title: '',
@@ -43,6 +45,38 @@ export function storyFromMarkdown (text, opts) {
   options.uid = _.kebabCase(options.title)
   options.content = $.xml()
   return new Story(options)
+}
+
+export function projectFromMarkdown(text, opts = {}) {
+  const options = Object.assign({
+    uid: '',
+    title: '',
+    stories: [],
+    definitions: []
+  }, opts)
+  const $ = cheerio.load(markdown.render(text.trim(), { linkify: true }).trim(), cheerioOptions)
+  const nodes = $.root().children()
+  for (let i = 0; i < nodes.length; i++) {
+    const child = nodes[i]
+    if (child.tagName === 'h1' && !options.title) {
+      options.title = $(child).text()
+    }
+    // if (child.tagName === 'p' && !options.description) {
+    //
+    // }
+    // if (child.tagName === 'ul' && !options.events.length) {
+    //   const children = $(child).children()
+    //   for (let j = 0; j < children.length; j++) {
+    //     options.events.push()
+    //   }
+    // }
+  }
+  options.uid = _.kebabCase(options.title)
+  return new Project(options)
+}
+
+export function projectFromMarkdownFile(filename, opts = {}) {
+  return projectFromMarkdown(fs.readFileSync(filename), opts)
 }
 
 export function normalizeHTML(html) {

@@ -1,12 +1,5 @@
-import Project from '../../lib/Project'
-import { storyFromMarkdown } from '../helpers'
+import { projectFromMarkdownFile } from '../helpers'
 
-const spacedrop = new Project({
-  uid: 'spacedrop',
-  title: 'Spacedrop',
-  stories: [
-    storyFromMarkdown()
-  ]
-})
+const spacedrop = projectFromMarkdownFile(`${__dirname}/spacedrop.md`)
 
 export default spacedrop
