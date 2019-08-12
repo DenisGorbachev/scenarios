@@ -20,6 +20,7 @@ it('parses story', () => {
   * Some note here
 `, { actor: Alice })).toEqual(new Story({
     actor: Alice,
+    uid: 'alice-buys-cryptocurrency',
     title: 'Alice buys cryptocurrency',
     content: normalizeHTML(`
       <h3>Alice buys cryptocurrency</h3>

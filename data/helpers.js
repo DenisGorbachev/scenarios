@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import cheerio from 'cheerio'
 import MarkdownIt from 'markdown-it'
 import Story from '../lib/Story'
@@ -15,6 +16,7 @@ const cheerioOptions = {
 
 export function storyFromMarkdown (text, opts) {
   const options = Object.assign({
+    uid: '',
     title: '',
     content: ''
     // description: '',
@@ -38,6 +40,7 @@ export function storyFromMarkdown (text, opts) {
     //   }
     // }
   }
+  options.uid = _.kebabCase(options.title)
   options.content = $.xml()
   return new Story(options)
 }

@@ -11,6 +11,7 @@ module.exports = withCSS({
         delete usage.options.minimize;
       }
     }
+
     // add loader for fonts
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -21,6 +22,14 @@ module.exports = withCSS({
         }
       }
     })
+
+    // stub modules for Joi
+    config.node = {
+      ...(config.node || {}),
+      net: 'empty',
+      tls: 'empty',
+      dns: 'empty'
+    };
 
     return config
   }

@@ -1,6 +1,6 @@
 const checkmytrades = {
   uid: 'checkmytrades',
-  name: 'CheckMyTrades'
+  title: 'CheckMyTrades',
 }
 
 export default checkmytrades
