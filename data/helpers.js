@@ -1,8 +1,10 @@
 import _ from 'lodash'
 import cheerio from 'cheerio'
 import MarkdownIt from 'markdown-it'
-import Story from '../lib/Story'
 import Book from '../lib/Book'
+import Section from '../lib/Section'
+import Page from '../lib/Page'
+import Story from '../lib/Story'
 import util from 'util'
 
 export const markdown = new MarkdownIt({
@@ -42,7 +44,7 @@ export function storyFromMarkdown(text, opts = {}) {
     //   }
     // }
   }
-  options.uid = _.kebabCase(options.title)
+  options.uid = toUid(options.title)
   options.content = $.xml()
   return new Story(options)
 }
@@ -58,8 +60,22 @@ export function bookFromMarkdown(text, opts = {}) {
   const nodes = $.root().children()
   for (let i = 0; i < nodes.length; i++) {
     const child = nodes[i]
-    if (child.tagName === 'h1' && !options.title) {
-      options.title = $(child).text()
+    switch (child.tagName) {
+      case 'h1':
+        options.title = $(child).text()
+        break;
+      case 'h2':
+        options.sections.push(new Section(withUid({
+          title: $(child).text(),
+          content: ''
+        })))
+        break;
+      default:
+        if (options.sections.length) {
+          options.sections[options.sections.length - 1].content += cheerio.html($(child)) + '\n'
+        } else {
+          options.content += cheerio.html($(child)) + '\n'
+        }
     }
     // if (child.tagName === 'p' && !options.description) {
     //
@@ -71,8 +87,14 @@ export function bookFromMarkdown(text, opts = {}) {
     //   }
     // }
   }
-  options.uid = _.kebabCase(options.title)
+  options.uid = toUid(options.title)
+  options.sections = options.sections.map(sectionFromHtmlObject)
+  options.content = options.content.trim()
   return new Book(options)
+}
+
+export function sectionFromHtmlObject() {
+
 }
 
 // export function bookFromMarkdownFile(filename, opts = {}) {
@@ -81,6 +103,14 @@ export function bookFromMarkdown(text, opts = {}) {
 
 export function normalizeHTML(html) {
   return cheerio.load(html, cheerioOptions).xml().replace(/^\s+/gm, '')
+}
+
+export function toUid(string) {
+  return _.kebabCase(string)
+}
+
+export function withUid(object) {
+  return Object.assign(object, { uid: toUid(object.title) })
 }
 
 export function story(title, events) {

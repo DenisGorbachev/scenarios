@@ -63,21 +63,36 @@ exports[`Index renders correctly 1`] = `
           href="/storytailor"
           onClick={[Function]}
           onMouseEnter={[Function]}
-        />
+        >
+          Storytailor
+        </a>
       </li>
       <li>
         <a
           href="/checkmytrades"
           onClick={[Function]}
           onMouseEnter={[Function]}
-        />
+        >
+          CheckMyTrades
+        </a>
       </li>
       <li>
         <a
           href="/trading"
           onClick={[Function]}
           onMouseEnter={[Function]}
-        />
+        >
+          Trading
+        </a>
+      </li>
+      <li>
+        <a
+          href="/spacedrop"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Spacedrop
+        </a>
       </li>
     </ul>
   </div>

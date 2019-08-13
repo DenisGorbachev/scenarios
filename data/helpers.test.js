@@ -3,7 +3,7 @@ import Section from '../lib/Section'
 import Page from '../lib/Page'
 import Story from '../lib/Story'
 import Person from '../lib/Actor/Person'
-import { storyFromMarkdown, normalizeHTML, bookFromMarkdown } from './helpers'
+import { storyFromMarkdown, bookFromMarkdown, normalizeHTML, withUid } from './helpers'
 
 it('parses story', () => {
   const Alice = new Person({
@@ -96,19 +96,18 @@ it('parses book', () => {
         - Fears performing work for zero-value airdrop
       - Fears losing status
         - Fears promoting scam book
-  `)).toEqual(new Book({
-    uid: 'spacedrop',
+  `)).toEqual(new Book(withUid({
     title: 'Spacedrop',
     content: normalizeHTML(`<p>Spacedrop is an application that allows bounty hunters to receive airdrops.</p>`.trim()),
     sections: [
-      new Section({
+      new Section(withUid({
         title: 'Stories',
         pages: [
-          new Page({
+          new Page(withUid({
             title: 'Bob receives an airdrop for Krypton book'
-          })
+          }))
         ]
-      })
+      }))
     ]
-  }))
+  })))
 })
