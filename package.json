@@ -37,6 +37,7 @@
     "babel-jest": "^24.8.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
+    "jest-raw-loader": "^1.0.1",
     "react-test-renderer": "~16.8.0"
   }
 }

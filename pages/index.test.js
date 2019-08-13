@@ -2,7 +2,6 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-
 import Index from './index.js'
 
 it('Index renders correctly', () => {

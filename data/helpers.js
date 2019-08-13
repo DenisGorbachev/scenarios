@@ -3,6 +3,7 @@ import cheerio from 'cheerio'
 import MarkdownIt from 'markdown-it'
 import Story from '../lib/Story'
 import Book from '../lib/Book'
+import util from 'util'
 
 export const markdown = new MarkdownIt({
   typographer: false,
@@ -15,7 +16,7 @@ const cheerioOptions = {
   decodeEntities: true,
 }
 
-export function storyFromMarkdown (text, opts = {}) {
+export function storyFromMarkdown(text, opts = {}) {
   const options = Object.assign({
     uid: '',
     title: '',
@@ -82,7 +83,7 @@ export function normalizeHTML(html) {
   return cheerio.load(html, cheerioOptions).xml().replace(/^\s+/gm, '')
 }
 
-export function story (title, events) {
+export function story(title, events) {
   return new Story({
     actor: title[0],
     plot: title[1],
