@@ -1,9 +1,8 @@
 import _ from 'lodash'
-import fs from 'fs'
 import cheerio from 'cheerio'
 import MarkdownIt from 'markdown-it'
 import Story from '../lib/Story'
-import Project from '../lib/Project'
+import Book from '../lib/Book'
 
 export const markdown = new MarkdownIt({
   typographer: false,
@@ -47,12 +46,12 @@ export function storyFromMarkdown (text, opts = {}) {
   return new Story(options)
 }
 
-export function projectFromMarkdown(text, opts = {}) {
+export function bookFromMarkdown(text, opts = {}) {
   const options = Object.assign({
     uid: '',
     title: '',
-    stories: [],
-    definitions: []
+    content: '',
+    sections: []
   }, opts)
   const $ = cheerio.load(markdown.render(text.trim(), { linkify: true }).trim(), cheerioOptions)
   const nodes = $.root().children()
@@ -72,12 +71,12 @@ export function projectFromMarkdown(text, opts = {}) {
     // }
   }
   options.uid = _.kebabCase(options.title)
-  return new Project(options)
+  return new Book(options)
 }
 
-export function projectFromMarkdownFile(filename, opts = {}) {
-  return projectFromMarkdown(fs.readFileSync(filename), opts)
-}
+// export function bookFromMarkdownFile(filename, opts = {}) {
+//   return bookFromMarkdown(fs.readFileSync(filename), opts)
+// }
 
 export function normalizeHTML(html) {
   return cheerio.load(html, cheerioOptions).xml().replace(/^\s+/gm, '')

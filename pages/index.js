@@ -1,7 +1,7 @@
 import Layout from '../components/Layout.js'
 import Link from 'next/link'
 import {Header} from "semantic-ui-react"
-import projects from "../data/projects"
+import projects from "../data/books"
 
 export default function Index() {
   return (
@@ -10,7 +10,7 @@ export default function Index() {
       <ul>
         {projects.map(project => (
           <li key={project.uid}>
-            <Link href="/[project]" as={`/${project.uid}`}>
+            <Link href="/[book]" as={`/${project.uid}`}>
               <a>{project.title}</a>
             </Link>
           </li>

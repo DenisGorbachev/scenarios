@@ -1,6 +1,6 @@
-import Project from '../../lib/Project'
+import Book from '../../lib/Book'
 
-const checkmytrades = new Project({
+const checkmytrades = new Book({
   uid: 'checkmytrades',
   title: 'CheckMyTrades',
 })

@@ -23,6 +23,11 @@ module.exports = withCSS({
       }
     })
 
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader'
+    })
+
     // stub modules for Joi
     config.node = {
       ...(config.node || {}),

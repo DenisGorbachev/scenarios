@@ -1,7 +1,7 @@
 import Entity from "../../lib/Entity"
-import Project from "../../lib/Project"
+import Book from "../../lib/Book"
 
-const storytailor = new Project({
+const storytailor = new Book({
   uid: 'storytailor',
   title: 'Storytailor',
 })

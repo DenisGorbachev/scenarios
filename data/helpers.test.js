@@ -1,7 +1,8 @@
+import Book from '../lib/Book'
+import Section from '../lib/Section'
 import Story from '../lib/Story'
-import Event from '../lib/Event'
 import Person from '../lib/Actor/Person'
-import { storyFromMarkdown, normalizeHTML, projectFromMarkdown } from './helpers'
+import { storyFromMarkdown, normalizeHTML, bookFromMarkdown } from './helpers'
 
 it('parses story', () => {
   const Alice = new Person({
@@ -70,43 +71,44 @@ it('parses story', () => {
   }))
 })
 
-// it('parses project', () => {
-//   expect(projectFromMarkdown(`
-//     # Spacedrop
-//
-//     Spacedrop is an application that allows bounty hunters to receive airdrops.
-//
-//     ## Stories
-//
-//     ### Bob receives an airdrop for Krypton project
-//
-//     - [Bob](#bob) opens https://spacedrop.io/project/krypton
-//     - Bob reads project description
-//
-//     ## Definitions
-//
-//     ### Bob
-//
-//     Bob is an expert bounty hunter.
-//
-//     Fears:
-//       - Fears losing time
-//         - Fears performing work for zero-value airdrop
-//       - Fears losing status
-//         - Fears promoting scam project
-//   `)).toEqual(new Story({
-//     uid: 'spacedrop',
-//     title: 'Spacedrop',
-//     description: normalizeHTML(`<p>Spacedrop is an application that allows bounty hunters to receive airdrops.</p>`.trim()),
-//     sections: [
-//       {
-//         title: 'Stories',
-//         pages: [
-//           // TODO: generate book from project
-//           // TODO: generate pages from stories and definitions
-//           // TODO: create a Section class
-//         ]
-//       }
-//     ]
-//   }))
-// })
+it('parses book', () => {
+  expect(bookFromMarkdown(`
+    # Spacedrop
+
+    Spacedrop is an application that allows bounty hunters to receive airdrops.
+
+    ## Stories
+
+    ### Bob receives an airdrop for Krypton book
+
+    - [Bob](#bob) opens https://spacedrop.io/book/krypton
+    - Bob reads book description
+
+    ## Definitions
+
+    ### Bob
+
+    Bob is an expert bounty hunter.
+
+    Fears:
+      - Fears losing time
+        - Fears performing work for zero-value airdrop
+      - Fears losing status
+        - Fears promoting scam book
+  `)).toEqual(new Story({
+    uid: 'spacedrop',
+    title: 'Spacedrop',
+    description: normalizeHTML(`<p>Spacedrop is an application that allows bounty hunters to receive airdrops.</p>`.trim()),
+    sections: [
+      new Section({
+        title: 'Stories',
+        pages: [
+          new Page({
+            title: 'Bob receives an airdrop for Krypton book'
+          })
+          // TODO: create a Section class
+        ]
+      })
+    ]
+  }))
+})

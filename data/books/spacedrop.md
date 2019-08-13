@@ -2,10 +2,10 @@
 
 ## Stories
 
-### Bob receives an airdrop for Krypton project
+### Bob receives an airdrop for Krypton book
     
-- [Bob](#bob) opens https://spacedrop.io/project/krypton
-- Bob reads project description
+- [Bob](#bob) opens https://spacedrop.io/book/krypton
+- Bob reads book description
 - Bob reads bounty program rules
 - Bob reads required actions
   - Follow https://twitter.com/KryptonFans
@@ -46,7 +46,7 @@ Fears:
   - Fears losing time
     - Fears performing work for zero-value airdrop
   - Fears losing status
-    - Fears promoting scam project
+    - Fears promoting scam book
 
 ### Bunny
 
