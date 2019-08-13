@@ -38,7 +38,6 @@ _Draft:_
   * Example:
     * ~ Bob does submit the form with correct values
     * ~ Bob doesn't submit the form with correct values
-* 
 
 Options:
 * Render a multi-level list
@@ -47,7 +46,7 @@ Options:
 Notes:
 * Programmer wants to see all continuations to design a good 
 * Programmer wants to see multiple linear stories to be able to implement them one-by-one.
-* Tester wants to see a fully line
+* Tester wants to see multiple linear stories to be able to test them one-by-one.
 
 ### Designer requests feedback on changes via GitHub pull request
 
