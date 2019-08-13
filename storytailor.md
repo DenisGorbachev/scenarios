@@ -8,6 +8,14 @@ User stories describe ideal system behavior. They have different formats: some a
 
 Storytailor is developed using Storytailor itself (just like compilers of certain programming languages). Below are the stories that describe ideal Storytailor behavior.
 
+### Designer progressively designs a project
+
+* Designer writes a [book](#book) in Markdown.
+* Designer defines models:
+  * Designer replaces manual definitions with generated definitions.
+* Designer defines events:
+  * Designer replaces manual stories with generated stories.
+
 ### Designer writes a story
 
 * Designer interviews User to figure out desirable system behavior.
@@ -265,12 +273,17 @@ Essentially, Programmer asserts that two states are equal: test state (local fla
 
 ## Definitions
 
-### Object
+* Project is [Models](#model) + [Events](#event).
+* [Objects](#object) + [Cases](#case) are specific [Models](#model) + [Events](#event).
+* [Books](#book), [Sections](#section), [Pages](#page) describe [Objects](#object) + [Cases](#case) in reader-friendly format.
 
-Object is a unit of data.
+### Model
+
+Model is a high-level data type. 
 
 Notes:
-* Object represents a row in a relational database.
+* Model represents a table in PostgreSQL.
+* Model represents a collection in MongoDB.
 
 ### Event
 
@@ -285,9 +298,16 @@ Notes:
 * Event can represent the passage of time
 * Event can represent a change in external system behavior
 
+### Object
+
+Object is a unit of data that conforms to predefined [model](#model).
+
+Notes:
+* Object represents a row in a relational database.
+
 ### Case
 
-Case is a named sequence of events.
+Case is a named sequence of [events](#event).
 
 Fields:
 * Name
