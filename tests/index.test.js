@@ -2,7 +2,7 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Index from './index.js'
+import Index from '../pages'
 
 it('Index renders correctly', () => {
   const component = renderer.create(<Index />)
