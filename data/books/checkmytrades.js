@@ -1,8 +1,6 @@
-import Book from '../../lib/Book'
+import { bookFromMarkdown } from '../helpers'
+import markdown from './checkmytrades.md'
 
-const checkmytrades = new Book({
-  uid: 'checkmytrades',
-  title: 'CheckMyTrades',
-})
+const checkmytrades = bookFromMarkdown(markdown)
 
 export default checkmytrades

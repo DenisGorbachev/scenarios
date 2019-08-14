@@ -1,4 +1,4 @@
-import { bookFromMarkdown, bookFromMarkdownFile } from '../helpers'
+import { bookFromMarkdown } from '../helpers'
 import spacedropMarkdown from './spacedrop.md'
 
 const spacedrop = bookFromMarkdown(spacedropMarkdown)

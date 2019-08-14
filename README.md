@@ -1,1 +1,1 @@
-storytailor.md
+data/books/storytailor.md
