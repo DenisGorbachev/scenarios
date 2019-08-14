@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 
 export default function({user}) {
     const router = useRouter()
-    const isDev = process.env.NODE_ENV === 'development';
     const isAdmin = user && ~user.roles.indexOf('admin')
     if (typeof window !== 'undefined') {
       router.prefetch('/')

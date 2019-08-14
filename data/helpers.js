@@ -5,7 +5,6 @@ import Book from '../lib/Book'
 import Section from '../lib/Section'
 import Page from '../lib/Page'
 import Story from '../lib/Story'
-import util from 'util'
 
 export const mit = new MarkdownIt({
   typographer: false,
@@ -171,3 +170,7 @@ export function story(title, events) {
     events: events
   })
 }
+
+export const isDev = process.env.NODE_ENV === 'development';
+
+export const isProd = process.env.NODE_ENV === 'production';
