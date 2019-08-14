@@ -3,7 +3,7 @@ import Section from '../lib/Section'
 import Page from '../lib/Page'
 import Story from '../lib/Story'
 import Person from '../lib/Actor/Person'
-import { storyFromMarkdown, bookFromMarkdown, normalizeHTML, withUid } from './helpers'
+import { storyFromMarkdown, bookFromMarkdown, normalizeHTML, normalizeMarkdown, withUid } from './helpers'
 
 it('parses story', () => {
   const Alice = new Person({
@@ -74,28 +74,28 @@ it('parses story', () => {
 
 it('parses book', () => {
   expect(bookFromMarkdown(`
-    # Spacedrop
+  # Spacedrop
 
-    Spacedrop is an application that allows bounty hunters to receive airdrops.
+  Spacedrop is an application that allows bounty hunters to receive airdrops.
 
-    ## Stories
+  ## Stories
 
-    ### Bob receives an airdrop for Krypton book
+  ### Bob receives an airdrop for Krypton book
 
-    - [Bob](#bob) opens https://spacedrop.io/book/krypton
-    - Bob reads book description
+  - Bob opens https://spacedrop.io/book/krypton
+  - Bob reads book description
 
-    ## Definitions
+  ## Definitions
 
-    ### Bob
+  ### Bob
 
-    Bob is an expert bounty hunter.
+  Bob is an expert bounty hunter.
 
-    Fears:
-      - Fears losing time
-        - Fears performing work for zero-value airdrop
-      - Fears losing status
-        - Fears promoting scam book
+  Fears:
+  - Fears losing time
+    - Fears performing work for zero-value airdrop
+  - Fears losing status
+    - Fears promoting scam book
   `)).toEqual(new Book(withUid({
     title: 'Spacedrop',
     content: normalizeHTML(`<p>Spacedrop is an application that allows bounty hunters to receive airdrops.</p>`.trim()),
@@ -104,10 +104,40 @@ it('parses book', () => {
         title: 'Stories',
         pages: [
           new Page(withUid({
-            title: 'Bob receives an airdrop for Krypton book'
+            title: 'Bob receives an airdrop for Krypton book',
+            content: normalizeHTML(`
+              <ul>
+              <li>Bob opens https://spacedrop.io/book/krypton</li>
+              <li>Bob reads book description</li>
+              </ul>
+            `)
           }))
         ]
-      }))
+      })),
+      new Section(withUid({
+        title: 'Definitions',
+        pages: [
+          new Page(withUid({
+            title: 'Bob',
+            content: normalizeHTML(`
+              <p>Bob is an expert bounty hunter.</p>
+              <p>Fears:</p>
+              <ul>
+              <li>Fears losing time
+              <ul>
+              <li>Fears performing work for zero-value airdrop</li>
+              </ul>
+              </li>
+              <li>Fears losing status
+              <ul>
+              <li>Fears promoting scam book</li>
+              </ul>
+              </li>
+              </ul>
+            `)
+          }))
+        ]
+      })),
     ]
   })))
 })

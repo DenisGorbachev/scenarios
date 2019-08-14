@@ -7,9 +7,13 @@ import Page from '../lib/Page'
 import Story from '../lib/Story'
 import util from 'util'
 
-export const markdown = new MarkdownIt({
+export const mit = new MarkdownIt({
   typographer: false,
 })
+
+const markdownOptions = {
+  linkify: true
+}
 
 const cheerioOptions = {
   withDomLvl1: true,
@@ -27,7 +31,7 @@ export function storyFromMarkdown(text, opts = {}) {
     // events: [],
     // notes: [],
   }, opts)
-  const $ = cheerio.load(markdown.render(text.trim(), { linkify: true }).trim(), cheerioOptions)
+  const $ = cheerio.load(mit.render(text.trim(), markdownOptions).trim(), cheerioOptions)
   const nodes = $.root().children()
   for (let i = 0; i < nodes.length; i++) {
     const child = nodes[i]
@@ -49,52 +53,95 @@ export function storyFromMarkdown(text, opts = {}) {
   return new Story(options)
 }
 
-export function bookFromMarkdown(text, opts = {}) {
+export function bookFromMarkdown(markdown, opts = {}) {
+  return bookFromHtml(mit.render(markdown.trim(), markdownOptions).trim(), opts)
+}
+
+export function bookFromHtml(html, opts = {}) {
   const options = Object.assign({
     uid: '',
     title: '',
     content: '',
     sections: []
   }, opts)
-  const $ = cheerio.load(markdown.render(text.trim(), { linkify: true }).trim(), cheerioOptions)
+  const $ = cheerio.load(html, cheerioOptions)
   const nodes = $.root().children()
   for (let i = 0; i < nodes.length; i++) {
     const child = nodes[i]
     switch (child.tagName) {
       case 'h1':
         options.title = $(child).text()
-        break;
+        break
       case 'h2':
-        options.sections.push(new Section(withUid({
-          title: $(child).text(),
-          content: ''
-        })))
-        break;
+        options.sections.push(cheerio.html($(child)))
+        break
       default:
         if (options.sections.length) {
-          options.sections[options.sections.length - 1].content += cheerio.html($(child)) + '\n'
+          options.sections[options.sections.length - 1] += '\n' + cheerio.html($(child))
         } else {
-          options.content += cheerio.html($(child)) + '\n'
+          options.content += '\n' + cheerio.html($(child))
         }
     }
-    // if (child.tagName === 'p' && !options.description) {
-    //
-    // }
-    // if (child.tagName === 'ul' && !options.events.length) {
-    //   const children = $(child).children()
-    //   for (let j = 0; j < children.length; j++) {
-    //     options.events.push()
-    //   }
-    // }
   }
   options.uid = toUid(options.title)
-  options.sections = options.sections.map(sectionFromHtmlObject)
+  options.sections = options.sections.map(sectionFromObjectWithHtml)
   options.content = options.content.trim()
   return new Book(options)
 }
 
-export function sectionFromHtmlObject() {
+export function sectionFromObjectWithHtml(html, opts = {}) {
+  const options = Object.assign({
+    uid: '',
+    title: '',
+    content: '',
+    pages: []
+  }, opts)
+  const $ = cheerio.load(html, cheerioOptions)
+  const nodes = $.root().children()
+  for (let i = 0; i < nodes.length; i++) {
+    const child = nodes[i]
+    switch (child.tagName) {
+      case 'h2':
+        options.title = $(child).text()
+        break
+      case 'h3':
+        options.pages.push(cheerio.html($(child)))
+        break
+      default:
+        if (options.pages.length) {
+          options.pages[options.pages.length - 1] += '\n' + cheerio.html($(child))
+        } else {
+          options.content += '\n' + cheerio.html($(child))
+        }
+    }
+  }
+  options.uid = toUid(options.title)
+  options.pages = options.pages.map(pageFromObjectWithHtml)
+  options.content = options.content.trim()
+  return new Section(options)
+}
 
+export function pageFromObjectWithHtml(html, opts = {}) {
+  const options = Object.assign({
+    uid: '',
+    title: '',
+    content: '',
+  }, opts)
+  const $ = cheerio.load(html, cheerioOptions)
+  const nodes = $.root().children()
+  for (let i = 0; i < nodes.length; i++) {
+    const child = nodes[i]
+    switch (child.tagName) {
+      case 'h3':
+        options.title = $(child).text()
+        break
+      default:
+        options.content += '\n' + cheerio.html($(child))
+    }
+  }
+  options.uid = toUid(options.title)
+  options.content = options.content.trim()
+  return new Page(options)
 }
 
 // export function bookFromMarkdownFile(filename, opts = {}) {
@@ -102,7 +149,11 @@ export function sectionFromHtmlObject() {
 // }
 
 export function normalizeHTML(html) {
-  return cheerio.load(html, cheerioOptions).xml().replace(/^\s+/gm, '')
+  return cheerio.load(html, cheerioOptions).xml().replace(/^\s+/gm, '').trim()
+}
+
+export function normalizeMarkdown(markdown) {
+  markdown
 }
 
 export function toUid(string) {
