@@ -1,15 +1,18 @@
 import React from "react"
 import {Dropdown, Header, Image, Menu, Icon} from 'semantic-ui-react'
-import Router from 'next/router';
+import { useRouter } from 'next/router'
 
-export default class NavBar extends React.Component {
-  render() {
+export default function({user}) {
+    const router = useRouter()
     const isDev = process.env.NODE_ENV === 'development';
-    const isAdmin = this.props.user && ~this.props.user.roles.indexOf('admin')
+    const isAdmin = user && ~user.roles.indexOf('admin')
+    if (typeof window !== 'undefined') {
+      router.prefetch('/')
+    }
 
     return (
       <Menu style={{marginBottom: '10px'}} attached="top" borderless inverted>
-        <Menu.Item onClick={() => Router.push('/')}>
+        <Menu.Item onClick={() => router.push('/')}>
             <Header inverted>
               <Icon name="list alternate outline"/>
               <Header.Content>Storytailor</Header.Content>
@@ -26,7 +29,7 @@ export default class NavBar extends React.Component {
           {/*  trigger={(*/}
           {/*    <>*/}
           {/*      <Icon name="user"/>*/}
-          {/*      {this.props.user && this.props.user.username}*/}
+          {/*      {user && user.username}*/}
           {/*    </>*/}
           {/*  )}*/}
           {/*>*/}
@@ -46,5 +49,4 @@ export default class NavBar extends React.Component {
         </Menu.Menu>
       </Menu>
     );
-  }
 }

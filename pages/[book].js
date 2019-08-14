@@ -11,8 +11,8 @@ const Book = ({uid}) => {
   return (
     <Layout>
       <h1>{book.title}</h1>
-      {book.content}
-      {book.sections.map(section => <Section book={book} section={section} />)}
+      <div dangerouslySetInnerHTML={{__html: book.content}} />
+      {book.sections.map(section => <Section key={section.uid} book={book} section={section} />)}
     </Layout>
   );
 }

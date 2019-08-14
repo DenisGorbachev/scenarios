@@ -10,7 +10,7 @@ export default function Index() {
       <ul>
         {projects.map(project => (
           <li key={project.uid}>
-            <Link href="/[book]" as={`/${project.uid}`}>
+            <Link href="/[book]" as={`/${project.uid}`} prefetch>
               <a>{project.title}</a>
             </Link>
           </li>

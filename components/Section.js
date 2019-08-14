@@ -8,7 +8,7 @@ const Section = ({ book, section }) => {
       <ul>
         {section.pages.map(page => (
           <li key={page.uid}>
-            <Link href="/[book]/[section]/[page]" as={`/${book.uid}/${section.uid}/${page.uid}`}>
+            <Link href="/[book]/[section]/[page]" as={`/${book.uid}/${section.uid}/${page.uid}`} prefetch>
               <a>{page.title}</a>
             </Link>
           </li>
