@@ -48,21 +48,18 @@ Notes:
 * Programmer wants to see multiple linear stories to be able to implement them one-by-one.
 * Tester wants to see multiple linear stories to be able to test them one-by-one.
 
-### Designer requests feedback on changes via GitHub pull request
+### Designer receives feedback on changes
 
 * [Designer writes a story](#designer-writes-a-story).
-* Designer switches to a separate branch.
-* Designer makes changes to the story.
-* Designer pushes the changes to repository.
-* Designer creates a pull request that includes the changes.
-* GitHub sends notifications to repository maintainers.
-
-### Designer requests feedback from client via GitHub
-
-* Designer creates a GitHub repository for stories.
-* Designer adds client as repository maintainer. 
-* [Designer requests feedback on changes via GitHub pull request](#designer-requests-feedback-on-changes-via-github-pull-request)
-
+* Designer clicks "Update" in Storytailor interface.
+* Storytailor pulls the changes from [data source](#data-source).
+* Storytailor updates the stories in database.
+* User receives a notification
+  * ~ Designer sends a link to diff to User:
+    * URL: https://storytailor.io/DenGorbachev/checkmytrades/definitions/trader?from=1c002dd&to=35cfb2b
+  * ~ Storytailor sends a notification with a link to diff.
+* User provides feedback via inline comments.
+  
 ### Designer adds a link to definition
 
 * Designer starts writing a story
@@ -395,3 +392,21 @@ Notes:
 * Definition may be specified manually.
   * Example:
     * "Direct acquisition method" definition is specified manually.
+
+### Data source
+
+Data source is an API that provides read access to [books](#book).
+
+Examples:
+* GitHub (books in Markdown)
+  * Can use REST API
+  * Can't have step IDs
+  * Can store code for story generator
+* Workflowy (books in native format)
+  * Can't use REST API
+  * Can have step IDs
+  * Can't store code for story generator
+* Dynalist (books in native format)
+  * Can use REST API
+  * Can have step IDs
+  * Can't store code for story generator
