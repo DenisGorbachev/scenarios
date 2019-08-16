@@ -5,6 +5,7 @@ import Book from '../lib/Book'
 import Section from '../lib/Section'
 import Page from '../lib/Page'
 import Story from '../lib/Story'
+import { DiscussionEmbed } from 'disqus-react'
 
 export const mit = new MarkdownIt({
   typographer: false,
@@ -137,7 +138,7 @@ export function pageFromObjectWithHtml(html, opts = {}) {
         break
       case 'ul':
         if (!options.content) {
-          options.points = $(child).children().map((index, el) => $(el).html()).toArray();
+          options.points = $(child).children().map((index, el) => $(el).html()).toArray()
         } else {
           options.content += '\n' + cheerio.html($(child))
         }
@@ -179,6 +180,20 @@ export function story(title, events) {
   })
 }
 
-export const isDev = process.env.NODE_ENV === 'development';
+export function disqusConfig(config) {
+  config.title = _.truncate(config.title, {
+    length: 200,
+    separator: /,? +/,
+  })
+  return {
+    shortname: 'storytailor',
+    config: _.defaults(config, {
+      // identifier is equal to url to allow pages with the same name within different projects (e.g. 'User signs up')
+      identifier: config.url
+    })
+  }
+}
 
-export const isProd = process.env.NODE_ENV === 'production';
+export const isDev = process.env.NODE_ENV === 'development'
+
+export const isProd = process.env.NODE_ENV === 'production'

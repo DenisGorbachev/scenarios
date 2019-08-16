@@ -4,7 +4,7 @@ const Section = ({ book, section }) => {
   return (
     <div>
       <h2 id={section.uid}>{section.title}</h2>
-      <p dangerouslySetInnerHTML={{__html: section.content}} />
+      <div dangerouslySetInnerHTML={{__html: section.content}} />
       <ul>
         {section.pages.map(page => (
           <li key={page.uid}>
