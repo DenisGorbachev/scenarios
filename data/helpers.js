@@ -6,6 +6,7 @@ import Section from '../lib/Section'
 import Page from '../lib/Page'
 import Story from '../lib/Story'
 import { DiscussionEmbed } from 'disqus-react'
+import url from 'url'
 
 export const mit = new MarkdownIt({
   typographer: false,
@@ -189,11 +190,26 @@ export function disqusConfig(config) {
     shortname: 'storytailor',
     config: _.defaults(config, {
       // identifier is equal to url to allow pages with the same name within different projects (e.g. 'User signs up')
-      identifier: config.url
+      url: `${config.baseUrl}${config.identifier}`
     })
   }
 }
 
+export const isServer = typeof window === 'undefined'
+
+export const isClient = typeof window !== 'undefined'
+
 export const isDev = process.env.NODE_ENV === 'development'
 
 export const isProd = process.env.NODE_ENV === 'production'
+
+export function getBaseUrl(req) {
+  if (isClient) {
+    const { protocol, host } = url.parse(window.location.href)
+    return `${protocol}//${host}`
+  } else {
+    const protocol = isDev ? 'http:' : 'https:'
+    const host = req.headers.host
+    return `${protocol}//${host}`
+  }
+}
