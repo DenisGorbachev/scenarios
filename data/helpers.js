@@ -125,6 +125,7 @@ export function pageFromObjectWithHtml(html, opts = {}) {
     uid: '',
     title: '',
     content: '',
+    points: []
   }, opts)
   const $ = cheerio.load(html, cheerioOptions)
   const nodes = $.root().children()
@@ -133,6 +134,13 @@ export function pageFromObjectWithHtml(html, opts = {}) {
     switch (child.tagName) {
       case 'h3':
         options.title = $(child).text()
+        break
+      case 'ul':
+        if (!options.content) {
+          options.points = $(child).children().map((index, el) => $(el).html()).toArray();
+        } else {
+          options.content += '\n' + cheerio.html($(child))
+        }
         break
       default:
         options.content += '\n' + cheerio.html($(child))

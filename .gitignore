@@ -5,8 +5,8 @@ node_modules
 .next
 
 # hide secret configuration files
-config/*.secret.json
-config/*.local.json
+configs/*.secret.json
+configs/*.local.json
 
 # for local development
 docker-compose.yml

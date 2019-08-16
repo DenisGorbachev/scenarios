@@ -1,9 +1,6 @@
-import Entity from "../../lib/Entity"
-import Book from "../../lib/Book"
+import { bookFromMarkdown } from '../helpers'
+import markdown from './storytailor.md'
 
-const storytailor = new Book({
-  uid: 'storytailor',
-  title: 'Storytailor',
-})
+const storytailor = bookFromMarkdown(markdown)
 
 export default storytailor

@@ -3,6 +3,7 @@ import {useRouter} from 'next/router';
 import Layout from '../components/Layout.js';
 import Section from '../components/Section.js';
 import books from "../data/books"
+import { DiscussionEmbed } from 'disqus-react'
 
 const Book = ({uid}) => {
   const router = useRouter();
@@ -11,8 +12,14 @@ const Book = ({uid}) => {
   return (
     <Layout>
       <h1>{book.title}</h1>
-      <div dangerouslySetInnerHTML={{__html: book.content}} />
+      <p dangerouslySetInnerHTML={{__html: book.content}} />
       {book.sections.map(section => <Section key={section.uid} book={book} section={section} />)}
+      <DiscussionEmbed shortname='storytailor' config={{
+        url: `/${book.uid}`,
+        // identifier is equal to url to allow pages with the same name within different projects (e.g. 'User signs up')
+        identifier: `/${book.uid}`,
+        title: book.title,
+      }} />
     </Layout>
   );
 }

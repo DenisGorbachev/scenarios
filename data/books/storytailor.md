@@ -48,6 +48,16 @@ Notes:
 * Programmer wants to see multiple linear stories to be able to implement them one-by-one.
 * Tester wants to see multiple linear stories to be able to test them one-by-one.
 
+### Follower subscribes to designer stories
+
+* Follower reads designer story
+* Follower decides that he wants to receive notifications when designer publishes another story
+* Follower subscribes to designer stories
+  * Follower subscribes by submitting an email form
+  * Follower subscribes by joining a Telegram channel
+  * Follower subscribes by following a Twitter account
+  * Follower subscribes by following a Facebook account
+
 ### Designer receives feedback on changes
 
 * [Designer writes a story](#designer-writes-a-story).
@@ -60,33 +70,6 @@ Notes:
   * ~ Storytailor sends a notification with a link to diff.
 * User provides feedback via inline comments.
   
-### Designer adds a link to definition
-
-* Designer starts writing a story
-  * Title: "Exchange updates latest price"
-* Designer adds event: `Alice places an order`
-* Designer adds a link to `Order` definition.
-
-### Designer defines a model for definition
-
-* Designer writes a definition for `Order`.
-* Designer defines a model:
-  ```
-    * Fields:
-      * Symbol
-        * Example: "BTCUSD"
-        * Type: String
-      * Price
-        * Example: 7500.0
-        * Type: Float
-      * Amount
-        * Example: 10.0
-        * Type: Float
-    * Validations:
-      * On insert:
-        * Validate that available balance of current user is higher than sum of already placed order amounts + new order amount
-  ```
-
 ### Designer adds validator to a story / Designer writes a story according to high-level spec
 
 _Draft:_
@@ -111,6 +94,26 @@ _Draft:_
   * Change email.
   * Change password.
 * Designer includes "User management" book in the new project.
+
+### Programmer defines a model
+
+* Programmer  defines a `Trade` model:
+  ```
+    * Fields:
+      * Symbol
+        * Example: "BTCUSD"
+        * Type: String
+      * Price
+        * Example: 7500.0
+        * Type: Float
+      * Amount
+        * Example: 10.0
+        * Type: Float
+    * Validations:
+      * On insert:
+        * Validate that available balance of current user is higher than sum of already placed order amounts + new order amount
+  ```
+* Programmer runs Storytailor to generate a definition.
 
 ### Programmer reuses designer model definition
 

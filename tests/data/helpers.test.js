@@ -1,9 +1,9 @@
-import Book from '../lib/Book'
-import Section from '../lib/Section'
-import Page from '../lib/Page'
-import Story from '../lib/Story'
-import Person from '../lib/Actor/Person'
-import { storyFromMarkdown, bookFromMarkdown, normalizeHTML, normalizeMarkdown, withUid } from './helpers'
+import Book from '../../lib/Book'
+import Section from '../../lib/Section'
+import Page from '../../lib/Page'
+import Story from '../../lib/Story'
+import Person from '../../lib/Actor/Person'
+import { storyFromMarkdown, bookFromMarkdown, normalizeHTML, normalizeMarkdown, withUid } from '../../data/helpers'
 
 it('parses story', () => {
   const Alice = new Person({
@@ -105,12 +105,10 @@ it('parses book', () => {
         pages: [
           new Page(withUid({
             title: 'Bob receives an airdrop for Krypton book',
-            content: normalizeHTML(`
-              <ul>
-              <li>Bob opens https://spacedrop.io/book/krypton</li>
-              <li>Bob reads book description</li>
-              </ul>
-            `)
+            points: [
+              'Bob opens https://spacedrop.io/book/krypton',
+              'Bob reads book description'
+            ]
           }))
         ]
       })),

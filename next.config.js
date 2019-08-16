@@ -1,14 +1,28 @@
 const _ = require('lodash')
+const fs = require('fs')
 const withCSS = require('@zeit/next-css')
 
+requireIfExists = function (filename, defaultValue = {}) {
+  return fs.existsSync(filename) ? require(filename) : defaultValue
+}
+
+const env = _.merge(
+  requireIfExists(`${__dirname}/storytailor.config.js`),
+  requireIfExists(`${__dirname}/storytailor.secret.config.js`),
+  requireIfExists(`${__dirname}/storytailor.local.config.js`)
+)
+
+const prod = process.env.NODE_ENV === 'production'
+
 module.exports = withCSS({
-  webpack (config, options) {
+  env,
+  webpack(config, options) {
     // remove deprecated option
     for (let i = 0; i < config.module.rules.length; i++) {
-      const rule = config.module.rules[i];
+      const rule = config.module.rules[i]
       const usage = _.find(rule.use, { loader: 'css-loader' })
       if (usage) {
-        delete usage.options.minimize;
+        delete usage.options.minimize
       }
     }
 
@@ -34,7 +48,7 @@ module.exports = withCSS({
       net: 'empty',
       tls: 'empty',
       dns: 'empty'
-    };
+    }
 
     return config
   }
