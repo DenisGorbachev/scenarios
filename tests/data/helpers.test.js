@@ -3,7 +3,8 @@ import Section from '../../lib/Section'
 import Page from '../../lib/Page'
 import Story from '../../lib/Story'
 import Person from '../../lib/Actor/Person'
-import { storyFromMarkdown, bookFromMarkdown, normalizeHTML, normalizeMarkdown, withUid } from '../../data/helpers'
+import { storyFromMarkdown, bookFromMarkdown, bookFromWorkflowy, normalizeHTML, normalizeMarkdown, withUid } from '../../data/helpers'
+import Point from '../../lib/Point'
 
 it('parses story', () => {
   const Alice = new Person({
@@ -138,4 +139,13 @@ it('parses book', () => {
       })),
     ]
   })))
+})
+
+it('imports book', () => {
+  const data = require('./__fixtures__/projectTreeData')
+  expect(bookFromWorkflowy(data, '15f57b8a9577')).toEqual(new Point({
+    uid: '15f57b8a9577',
+    title: 'TensorCharts',
+    subtitle: '',
+  }))
 })

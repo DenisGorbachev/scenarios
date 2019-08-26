@@ -1,12 +1,11 @@
 import _ from 'lodash'
+import url from 'url'
 import cheerio from 'cheerio'
 import MarkdownIt from 'markdown-it'
 import Book from '../lib/Book'
 import Section from '../lib/Section'
 import Page from '../lib/Page'
 import Story from '../lib/Story'
-import { DiscussionEmbed } from 'disqus-react'
-import url from 'url'
 
 export const mit = new MarkdownIt({
   typographer: false,
@@ -156,6 +155,32 @@ export function pageFromObjectWithHtml(html, opts = {}) {
 // export function bookFromMarkdownFile(filename, opts = {}) {
 //   return bookFromMarkdown(fs.readFileSync(filename), opts)
 // }
+
+export function importWorkflowyData(filename) {
+  const data = require(filename)
+  replaceSharedPoints(data['mainProjectTreeInfo']['rootProjectChildren'], data['auxiliaryProjectTreeInfos'])
+  return data;
+}
+
+export function replaceSharedPoints(points, auxiliaryProjectTreeInfos) {
+  for (let i = 0; i < points.length; i++) {
+    const point = points[i]
+    if (point.as) {
+      const id = point['id']
+      const sharedInfo = _.find(auxiliaryProjectTreeInfos, (info) => info['shareId'] === point.as)
+      Object.assign(point, sharedInfo['rootProject'])
+      point['children'] = sharedInfo['rootProjectChildren']
+    }
+  }
+}
+
+export function bookFromWorkflowy(data, shortUid) {
+
+}
+
+export function findNodeByShortUid(data, shortUid) {
+
+}
 
 export function normalizeHTML(html) {
   return cheerio.load(html, cheerioOptions).xml().replace(/^\s+/gm, '').trim()
