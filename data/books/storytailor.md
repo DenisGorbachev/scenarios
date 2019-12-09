@@ -83,7 +83,7 @@ _Draft:_
 
 * [Designer writes a story](#designer-writes-a-story).
 * Designer decides to add a definition for "Acquisition channel"
-* Designer includes "Acquisition channel" definition from sales book.
+* Designer imports "Acquisition channel" definition from sales book.
 
 ### Designer reuses stories from another project
 
