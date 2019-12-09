@@ -44,7 +44,7 @@ Options:
 * Render multiple linear stories
 
 Notes:
-* Programmer wants to see all continuations to design a good 
+* Programmer wants to see all continuations to design a good application.
 * Programmer wants to see multiple linear stories to be able to implement them one-by-one.
 * Tester wants to see multiple linear stories to be able to test them one-by-one.
 
