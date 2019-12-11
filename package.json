@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next",
     "test": "jest",
-    "watch": "jest --watch",
+    "test:watch": "jest --watch",
     "build": "next build",
     "start": "next start",
     "deploy": "now"
