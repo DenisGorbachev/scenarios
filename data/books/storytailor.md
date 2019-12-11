@@ -93,7 +93,7 @@ _Draft:_
   * Reset password.
   * Change email.
   * Change password.
-* Designer includes "User management" book in the new project.
+* Designer imports "User management" book in the new project.
 
 ### Programmer defines a model
 
