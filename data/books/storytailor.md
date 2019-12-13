@@ -354,6 +354,9 @@ Notes:
     * Approve the result of customer discovery.
     * Share company plans with teams.
     * Motivate yourself.
+* Story may require "setup" before "run":
+  * A story of "Customer buys shoes online" requires setting up an online shop.
+  * In this sense, a story is like a function that reads from database upon entry & writes to database upon exit.
 * Story may render events in different forms:
   * Long form: all properties specified via nested list.
     * User signs up
