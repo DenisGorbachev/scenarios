@@ -7,9 +7,12 @@ export default class Calculator {
 
   send(input) {
     this.input += input
+    return this.input
   }
 
   run() {
+    if (!this.input.length) return 0
+
     var variables = Object.create(null)
     variables.e = Math.E
     variables.pi = Math.PI
@@ -90,6 +93,7 @@ export default class Calculator {
     // </div>
     const parsePrimaryExpr = function () {
       var t = peek()
+      console.log('t', t)
 
       if (isNumber(t)) {
         consume(t)

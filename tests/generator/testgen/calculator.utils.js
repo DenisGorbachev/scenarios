@@ -12,11 +12,17 @@ export default {
     this.calculator.input = state.input
   },
   handleEvent: function (event, state) {
-    console.log('event', event);
+    console.log('event', event)
     if (!_.isFunction(this.calculator[event.name])) {
       throw new Error(`Handler for ${event.name} not found`)
     }
     this.calculator.context = event.context
     return this.calculator[event.name].apply(this.calculator, event.args)
+  },
+  getDiff(future, state) {
+    return _.differenceWith(_.toPairs(future).sort(), _.toPairs(state).sort(), _.isEqual)
+  },
+  isEmptyDiff(diff) {
+    return _.isEmpty(diff)
   },
 }

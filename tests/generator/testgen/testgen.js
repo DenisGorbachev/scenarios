@@ -32,21 +32,22 @@ function isSeen(nextState, store) {
 }
 
 function isDiffEmpty(diff) {
-  for (const name in diff) {
-    if (diff[name].length) {
-      return false
-    }
-  }
-  return true
+  // for (const name in diff) {
+  //   if (diff[name].length) {
+  //     return false
+  //   }
+  // }
+  // return true
+  return _.isEmpty(diff)
 }
 
-function getDiff(nextState, state) {
+function getDiff(future, state) {
   // const diff = {}
   // for (const name in collections) {
   //   diff[name] = _.differenceWith(nextState[name], state[name], _.isEqual)
   // }
   // return diff
-  return _.differenceWith(nextState, state, _.isEqual)
+  return _.differenceWith(future, state, _.isEqual)
 }
 
 function getExpectationCode(test) {
@@ -60,9 +61,7 @@ module.exports.event = ${JSON.stringify(test.event, null, 2)};
 
 module.exports.result = undefined;
 
-module.exports.diff = {
-  'Users': [],
-};
+module.exports.diff = {};
 `
 }
 
@@ -77,17 +76,21 @@ function ensureExpectationTemplate(filename, test) {
   }
 }
 
-export default function testgen(name, generators, validators, expectations, expectationsDir, utils) {
+export default function testgen(name, generators, validators, expectationsDir, utils) {
   utils.init()
+  // states to be processed
+  const states = []
+  // store of seen states (including unprocessed)
+  const store = []
+  // executed tests (state-event pairs)
+  const tests = [];
   describe(`${name} testgen`, function () {
     utils.setState(/* empty state (reset) */)
     // unprocessed states, with one zero currState in the beginning
     // using getState() to allow fixtures
     const state = utils.getState()
-    // states to be processed
-    const states = [state]
-    // store of seen states (including unprocessed)
-    const store = [state]
+    states.push(state)
+    store.push(state)
     const stateProvider = (function * () {
       while (states.length) {
         yield states.shift()
@@ -98,25 +101,29 @@ export default function testgen(name, generators, validators, expectations, expe
       for (const event of events) {
         const test = { state, event }
         const hash = objectHash(test)
+        console.log('test', test);
+        tests.push(test)
         // eslint-disable-next-line no-shadow
         it(`scenario #${hash}`, (function (state, event) {
           console.info(`Running ${hash}`)
           utils.setState(state)
           const result = utils.handleEvent(_.cloneDeep(event), state)
           const future = utils.getState()
-          const diff = getDiff(future, state)
+          const diff = utils.getDiff(future, state)
+          console.log('diff', diff);
           // NOTE: We want to assert the result even upon empty diff, since the result should contain the error
           // NOTE: In case of empty diff, the state will be homogenous, so we need the "or condition" for empty diff
-          if (!isSeen(future, store) || isDiffEmpty(diff)) {
-            const expectation = expectations[hash]
+          if (!isSeen(future, store) || utils.isEmptyDiff(diff)) {
+            const expectationFilename = `${expectationsDir}/${hash}.js`
+            const expectation = fs.existsSync(expectationFilename) ? require(expectationFilename) : undefined;
+            console.log('expectation', expectation);
             if (expectation === undefined || expectation.result === undefined || expectation.diff === undefined) {
-              const expectationFilename = `${expectationsDir}/${hash}.js`
               ensureExpectationTemplate(expectationFilename, test)
               throw new Error(`Add expectation in ${expectationFilename}`)
             }
             expect(result).toEqual(expectation.result)
             expect(diff).toEqual(expectation.diff)
-            if (!isDiffEmpty(diff)) {
+            if (!utils.isEmptyDiff((diff))) {
               states.push(future)
               // storing unprocessed states is necessary for cross-root homogeneity checking
               store.push(future)
@@ -126,6 +133,7 @@ export default function testgen(name, generators, validators, expectations, expe
       }
     }
   })
+  return tests;
 }
 
 const pruneScenarios = [
