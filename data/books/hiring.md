@@ -1,6 +1,6 @@
 # Hiring
 
-Hiring stories outline the best practices for employers and employees.
+Hiring book outlines the best practices for employers and employees.
 
 ## Stories
 

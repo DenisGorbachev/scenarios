@@ -1,6 +1,6 @@
 # Programming
 
-Programming stories outline the best practices for software developers.
+Programming book outlines the best practices for software developers.
 
 ## Stories
 
