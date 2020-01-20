@@ -1,0 +1,64 @@
+- projectUrl: 
+  tags:
+    # domains (important: allows to select people who have specific domain knowledge) (may include multiple)
+    crypto
+    insurance
+    task-tracking
+    # environment
+    startup # new company, e.g. Moonbase
+    corporation # established company, e.g. Skyscanner
+    unicorn # well-known company, e.g. Google
+    freelance # your own company
+    # tasks
+    idea
+    ui
+    code
+    devops
+    management
+    # platforms
+    web
+    ios
+    android
+    windows
+    mac
+    linux
+    rest # if application exposes an API for developers
+    websocket
+    cli
+    # testing
+    unit-tests
+    integration-tests
+    # languages
+    javascript
+    html
+    css
+    # frameworks
+    node
+    meteor
+    react
+    jest
+    storybook
+    # databases
+    mongodb
+    postgresql
+    mysql
+    mssql
+    cassandra
+    redis
+    # queue systems
+    kafka
+    # deployment
+    mup
+    docker
+    # apis
+    trello-api
+    google-calendar-api
+    mixpanel-api
+    google-analytics-api
+    # rpcs
+    bitcoin-rpc
+    ethereum-rpc
+    # libraries
+    ccxt-library
+    tradingview-charting-library
+    # NOTE: don't forget to add other tags relevant to this project!

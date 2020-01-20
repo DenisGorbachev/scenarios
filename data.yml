@@ -1,0 +1,129 @@
+projects:
+  - name: Pintask
+    urls:
+      - https://pintask.me/
+  - name: Moonbase
+    urls:
+      - https://moonbase.exchange/
+  - name: CoinMarketBook
+    urls:
+      - https://coinmarketbook.cc/
+  - name: FlowBAT
+    urls:
+      - http://www.flowbat.com/
+      - https://github.com/chrissanders/FlowBAT
+people:
+  - name: Denis Gorbachev
+    urls:
+      - https://github.com/DenisGorbachev
+      - https://linkedin.com/in/dengorbachev/
+      - https://twitter.com/DenGorbachev
+    jobs:
+      - projectUrl: https://pintask.me/
+        tags:
+          - task-tracking
+          - startup
+          - idea
+          - ui
+          - code
+          - management
+          - web
+          - coffeescript
+          - javascript
+          - stylus
+          - less
+          - node
+          - meteor
+          - mongodb
+          - unit-tests
+          - mup
+          - docker
+          - trello-api
+          - google-calendar-api
+          - mixpanel-api
+          - google-analytics-api
+      - projectUrl: https://moonbase.exchange/
+        tags:
+          - crypto
+          - exchange
+          - startup
+          - idea
+          - ui
+          - code
+          - devops
+          - management
+          - web
+          - rest
+          - websocket
+          - unit-tests
+          - integration-tests
+          - elixir
+          - javascript
+          - html
+          - css
+          - phoenix
+          - react
+          - jest
+          - storybook
+          - postgresql
+          - redis
+          - distillery
+          - bitmex-api
+          - binance-api
+          - bitcoin-rpc
+          - ethereum-rpc
+          - tradingview-charting-library
+      - projectUrl: https://coinmarketbook.cc/
+        tags:
+          - crypto
+          - directory
+          - startup
+          - idea
+          - ui
+          - devops
+          - management
+          - web
+          - unit-tests
+          - javascript
+          - html
+          - css
+          - node
+          - react
+          - jest
+          - storybook
+          - postgresql
+          - pm2
+          - google-analytics-api
+          - bitmex-api
+          - bitfinex-api
+          - binance-api
+          - huobi-api
+          - okex-api
+          - ccxt-library
+          - tradingview-charting-library
+      - projectUrl: http://www.flowbat.com/
+        tags:
+          - security
+          - silk-suite
+          - freelance
+          - ui
+          - code
+          - devops
+          - management
+          - web
+          - unit-tests
+          - mongodb
+          - node
+          - meteor
+          - coffeescript
+          - javascript
+          - stylus
+          - jade
+          - mup
+          - ssh
+    languages:
+      - English
+      - Russian
+      - Ukrainian
+    location: Russia
+
