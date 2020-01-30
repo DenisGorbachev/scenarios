@@ -31,6 +31,22 @@ const projects = [
     name: 'FlowBAT',
     urls: ['http://www.flowbat.com/', 'https://github.com/chrissanders/FlowBAT'],
   },
+  {
+    name: 'ParkQX',
+    urls: ['https://keenethics.com/parkqx-c2c-e-commerce'],
+  },
+  {
+    name: 'Education System Platform',
+    urls: ['https://keenethics.com/project-education-system-platform'],
+  },
+  {
+    name: 'OneRemission',
+    urls: ['https://keenethics.com/project-one-remission'],
+  },
+  {
+    name: 'Pree',
+    urls: ['https://keenethics.com/project-pree'],
+  },
 ];
 
 const people = [
@@ -194,6 +210,78 @@ const people = [
     languages: ['English', 'Russian', 'Ukrainian'],
     location: 'Russia',
   },
+  {
+    name: 'Sergey Gornostaev',
+    urls: [
+      'https://github.com/keenethics'
+    ],
+    jobs: [
+      {
+        // matches one of project urls
+        projectUrl: 'https://keenethics.com/project-workbooking',
+        tags: [
+          // domains (important: allows to select people who have specific domain knowledge) (may include multiple)
+          'Consumer app', 'job platform',
+          // company types (may include multiple)
+          'startup',
+          // task types (may include multiple)
+          'idea',
+          'ui',
+          'code',
+          'management',
+          // platforms
+          'web',
+          // languages
+          'javascript',
+          // frameworks
+          'React',
+          'meteor',
+          // databases
+          'mongodb',
+          // testing
+          'unit-tests',
+          // deployment
+          'mup',
+          'docker',
+          // apis
+          'trello-api',
+          'google-calendar-api',
+          'mixpanel-api',
+          'google-analytics-api',
+        ],
+      },
+      {
+        projectUrl: 'https://keenethics.com/project-knote',
+        tags: [
+          //
+          'Business',
+          //
+          'startup',
+          //
+          'idea',
+          'ui',
+          'code',
+          'devops',
+          'management',
+          //
+          'web',
+          'rest',
+          'websocket',
+          //
+          'unit-tests',
+          'integration-tests',
+          //
+          'javascript',
+          //
+          'react',
+          'Meteor',
+          'Blaze',
+        ],
+      },
+    ],
+    languages: ['English', 'Russian', 'Ukrainian'],
+    location: 'Ukraine',
+  },
 ];
 
 // print them all, remove irrelevant (ensures that you won't miss important tags)
@@ -267,9 +355,9 @@ const jobTemplate = `
 // using old school modules for backward compatibility
 module.exports = { projects, people };
 
-// console.info(YAML.stringify({
-//   projects,
-//   people,
-// }));
+console.info(YAML.stringify({
+  projects,
+  people,
+}));
 
-console.info(jobTemplate);
+// console.info(jobTemplate);
